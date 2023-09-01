@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('codename_type');
-            $table->unsignedBigInteger('codename_supplier');
+            $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('supplier_id');
             $table->string('codename_item');
             $table->string('name');
             $table->bigInteger('purchase_price');
             $table->bigInteger('selling_price')->nullable();
 
-            $table->foreign('codename_type')->references('id')->on('types');
-            $table->foreign('codename_supplier')->references('id')->on('suppliers');
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
         });
     }
 
